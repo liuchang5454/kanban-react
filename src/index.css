@@ -1,14 +1,53 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.boards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.board {
+  display: inline-block;
+  width: 300px;
+  margin: 10px;
+}
+
+.boardList {
+  padding: 0;
+  margin: 0;
+}
+
+.boardTitle {
+  border: 1px solid #ddd;
+  padding: 12px;
+}
+
+.boardTitle.LightCoral {
+  background-color: LightCoral;
+}
+
+.boardTitle.ForestGreen {
+  background-color: ForestGreen;
+}
+
+.boardTitle.Goldenrod {
+  background-color: Goldenrod;
+}
+
+.boardTitle.DarkTurquoise {
+  background-color: DarkTurquoise;
+}
+
+.boardItem {
+  border: 1px solid #ddd;
+  margin-top: -1px;
+  padding: 12px;
+}
+
+.addItem {
+  padding: 12px;
+  color: MidnightBlue;
+  font-style: italic;
+}
+
+.addItem :hover {
+  text-decoration: underline;
 }
