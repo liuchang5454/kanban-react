@@ -10,7 +10,9 @@ class Board extends Component {
   addItem(){
     const index = this.props.index;
     const newItem = prompt("Please enter your new item", "New item...");
-    this.props.onAddItem(index, newItem);
+    if(newItem !== "" && newItem !== null && newItem !== undefined){
+      this.props.onAddItem(index, newItem);
+    }
   }
 
 
