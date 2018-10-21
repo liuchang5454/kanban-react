@@ -8,7 +8,9 @@ class Board extends Component {
   }
 
   addItem(){
-    console.log("Adding an item");
+    const index = this.props.index;
+    const newItem = prompt("Please enter your new item", "New item...");
+    this.props.onAddItem(index, newItem);
   }
 
   render(){
@@ -25,11 +27,11 @@ class Board extends Component {
           {boardList}
         </div>
         <div className="addItem">
-          <a onClick={this.addItem}>Add an item</a>
+          <a onClick={this.addItem}>Add a new item</a>
         </div>
       </div>
     );
   }
 }
-
+//html button instead of a ???
 export default Board;

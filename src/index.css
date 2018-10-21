@@ -46,6 +46,7 @@
   padding: 12px;
   color: MidnightBlue;
   font-style: italic;
+  cursor: pointer;
 }
 
 .addItem :hover {

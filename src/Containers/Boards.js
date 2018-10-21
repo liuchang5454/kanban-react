@@ -40,11 +40,24 @@ class Boards extends Component {
         }
       ]
     }; 
+    this.addItem = this.addItem.bind(this);
+  }
+
+  addItem(index, newItem){
+    let newBoards = this.state.boards.slice();
+    newBoards[index].list.push(newItem);
+    this.setState({boards: newBoards})
   }
 
   render(){
     const kanbans = this.state.boards.map((el, index) => {
-      return <Board key={index} title={el.title} list={el.list} color={el.color} />
+      return <Board key={index} 
+                    index={index}
+                    title={el.title} 
+                    list={el.list} 
+                    color={el.color}
+                    onAddItem={this.addItem}
+              />
     });
     return (
       <div className="boards">
