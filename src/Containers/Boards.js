@@ -41,6 +41,8 @@ class Boards extends Component {
       ]
     }; 
     this.addItem = this.addItem.bind(this);
+    this.moveToLeft = this.moveToLeft.bind(this);
+    this.moveToRight = this.moveToRight.bind(this);
   }
 
   addItem(index, newItem){
@@ -49,14 +51,42 @@ class Boards extends Component {
     this.setState({boards: newBoards})
   }
 
+  moveToLeft(boardIndex, itemIndex){
+    console.log("moving to left");
+    let newBoards = this.state.boards.slice();
+    const item = newBoards[boardIndex].list[itemIndex];
+    //add to the bottom of previous board
+    newBoards[boardIndex - 1].list.push(item);
+    //remove from current board
+    newBoards[boardIndex].list.splice(itemIndex, 1);
+    this.setState({boards: newBoards});
+  }
+
+  moveToRight(boardIndex, itemIndex){
+    console.log("moving to right");
+    let newBoards = this.state.boards.slice();
+    const item = newBoards[boardIndex].list[itemIndex];
+    //add to the bottom of next board
+    newBoards[boardIndex + 1].list.push(item);
+    //remove from current board
+    newBoards[boardIndex].list.splice(itemIndex, 1);
+    this.setState({boards: newBoards});
+  }
+
   render(){
     const kanbans = this.state.boards.map((el, index) => {
+      const isLeftMost = index === 0 ? true : false;
+      const isRightMost = index === this.state.boards.length - 1 ? true : false;
       return <Board key={index} 
                     index={index}
                     title={el.title} 
                     list={el.list} 
                     color={el.color}
                     onAddItem={this.addItem}
+                    isLeftMost={isLeftMost}
+                    isRightMost={isRightMost}
+                    onMoveToLeft={this.moveToLeft}
+                    onMoveToRight={this.moveToRight}
               />
     });
     return (

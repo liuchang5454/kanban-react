@@ -40,6 +40,21 @@
   border: 1px solid #ddd;
   margin-top: -1px;
   padding: 12px;
+  display: flex;
+}
+
+.leftArrow {
+  width:10%;
+  cursor: pointer;
+}
+
+.itemText {
+  width: 80%;
+}
+
+.rightArrow {
+  width: 10%;
+  cursor: pointer;
 }
 
 .addItem {

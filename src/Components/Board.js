@@ -13,10 +13,23 @@ class Board extends Component {
     this.props.onAddItem(index, newItem);
   }
 
+
   render(){
+    const isLeftMost = this.props.isLeftMost;
+    const isRightMost = this.props.isRightMost;
+
     const boardTitle = this.props.title;
     const boardList = this.props.list.map((el, index) => {
-      return <BoardItem key={index} item={el}/>
+      return <BoardItem 
+                key={index} 
+                item={el} 
+                isLeftMost={isLeftMost} 
+                isRightMost={isRightMost}
+                onMoveToLeft={this.props.onMoveToLeft}
+                onMoveToRight={this.props.onMoveToRight} 
+                boardIndex={this.props.index}
+                itemIndex={index}
+              />
     });
     return (
       <div className="board">
